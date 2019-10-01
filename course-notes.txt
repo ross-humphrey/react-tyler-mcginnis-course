@@ -1,0 +1,32 @@
+React Course Notes:
+
+Learning:
+  > Mastery is fixed
+  > Time is variable
+
+State of React:
+  > React added hooks recently
+  > Need to know hooks as well as 'classic' style
+  > This course - will learn 'classic' - hooks in other Course
+
+Why React?
+  > Library for building User interfaces
+  > Composition - use functions to create UI components
+  > A Vibrant ecosystem of 3rd party components
+  > Unidirectional Dataflow
+    > When and how data changes
+    > In react source of truth lives in react components
+  > UI is a function of the state
+  > Declarative UI:
+    > React: Describe UI
+      > When state changes, DOM is changed
+  > At its core its just java script - with a minimal React API
+  > The right abstraction
+    > Empowers the User
+    > Simplifies behaviour
+    > Without exposing the implementation
+
+  > Some companies to check out:
+    > GATSBY
+    > <Styled Components>
+    > NEXT.js
