@@ -30,3 +30,38 @@ Why React?
     > GATSBY
     > <Styled Components>
     > NEXT.js
+
+The React ecosystem
+
+What makes learning React hard?
+  > Many parts (NPM, Babel and Webpack)
+
+React:
+  > Library for building UI's
+  > HTML inside JS (jsx)
+  > BABEL - Is a javascript compiler (code in -> code out)
+  > Browsers dont support jsx natively, we first need to transform to JS
+    (using Babel)
+  > Babel, can be used to convert from x-> y format (and solve translation issues)
+  > import / export syntax - use webpack to put all scripts into one place
+    > web pack output dosnt include export and import statements
+
+React router:
+  > React dosn't come with a router
+  > React router is most important
+
+Styling:
+  Most contraversial layer
+  Traditional: index.css, classes, cascades, SASS, LESS etc
+  Untraditional: (CSS in JS) Component model, no cascade, no global namespace.
+  Styles are part of the JS
+
+Styled compoennts -
+  > Components can specify styling
+
+Redux -
+  > Predictable state container for JS
+  > Ecosystem for making state changes Predictable
+  > All state in one place (store) and rules on how the store can change
+  > Ignore REDUX until comfortable with React
+  > You may never need Redux
