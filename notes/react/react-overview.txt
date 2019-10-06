@@ -1,0 +1,67 @@
+React Course Notes:
+
+Learning:
+  > Mastery is fixed
+  > Time is variable
+
+State of React:
+  > React added hooks recently
+  > Need to know hooks as well as 'classic' style
+  > This course - will learn 'classic' - hooks in other Course
+
+Why React?
+  > Library for building User interfaces
+  > Composition - use functions to create UI components
+  > A Vibrant ecosystem of 3rd party components
+  > Unidirectional Dataflow
+    > When and how data changes
+    > In react source of truth lives in react components
+  > UI is a function of the state
+  > Declarative UI:
+    > React: Describe UI
+      > When state changes, DOM is changed
+  > At its core its just java script - with a minimal React API
+  > The right abstraction
+    > Empowers the User
+    > Simplifies behaviour
+    > Without exposing the implementation
+
+  > Some companies to check out:
+    > GATSBY
+    > <Styled Components>
+    > NEXT.js
+
+The React ecosystem
+
+What makes learning React hard?
+  > Many parts (NPM, Babel and Webpack)
+
+React:
+  > Library for building UI's
+  > HTML inside JS (jsx)
+  > BABEL - Is a javascript compiler (code in -> code out)
+  > Browsers dont support jsx natively, we first need to transform to JS
+    (using Babel)
+  > Babel, can be used to convert from x-> y format (and solve translation issues)
+  > import / export syntax - use webpack to put all scripts into one place
+    > web pack output dosnt include export and import statements
+
+React router:
+  > React dosn't come with a router
+  > React router is most important
+
+Styling:
+  Most contraversial layer
+  Traditional: index.css, classes, cascades, SASS, LESS etc
+  Untraditional: (CSS in JS) Component model, no cascade, no global namespace.
+  Styles are part of the JS
+
+Styled compoennts -
+  > Components can specify styling
+
+Redux -
+  > Predictable state container for JS
+  > Ecosystem for making state changes Predictable
+  > All state in one place (store) and rules on how the store can change
+  > Ignore REDUX until comfortable with React
+  > You may never need Redux
