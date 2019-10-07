@@ -92,6 +92,28 @@ const snoop = Animal('Snoop', 10)
 function doThing(){}
 console.log(doThing.prototype) // {}
 
+// Object.Create
+// We can improve this further using Object.create
+// Allows you to create an object which will delegate to another object on
+// failed lookups.
+
+const parent = {
+  name: 'Stacey',
+  age: 35,
+  heritage: 'Irish'
+}
+
+const child = Object.create(parent)
+child.name = 'Ryan'
+child.age = 7
+
+console.log(child.name)
+console.log(child.age)
+console.log(child.heritage)
+
+// Child is created - when there is a failed lookup - JS will delegate
+// to the parent object.
+
 // Prototypal instantiation
 
 function Animal (name, energy) {
