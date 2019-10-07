@@ -85,3 +85,27 @@ const snoop = Animal('Snoop', 10)
 // Shared methods are in their own object and referencing that
 // object outside of the animal function is now possible
 // meaning no memory waste or overly large animal objects!
+
+
+// Object.Create
+// We can improve this further using Object.create
+// Allows you to create an object which will delegate to another object on
+// failed lookups.
+
+const parent = {
+  name: 'Stacey',
+  age: 35,
+  heritage: 'Irish'
+}
+
+const child = Object.create(parent)
+child.name = 'Ryan'
+child.age = 7
+
+console.log(child.name)
+console.log(child.age)
+console.log(child.heritage)
+
+// Child is created - when there is a failed lookup - JS will delegate
+// to the parent object.
+ 
