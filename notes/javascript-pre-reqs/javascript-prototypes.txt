@@ -144,3 +144,99 @@ snoop.play(5)
 
 // Prototype is just a property every function in JS has, allows us to share
 // methods across all instances of a function.
+
+// Built in way in doing this is with the new keyword
+// Without creating the object with Object.create - you cant deletage to the functions prototype
+// on failed lookups. Without the return we wouldnt ever get back the created object
+
+function Animal (name, energy) {
+  let animal = Object.create(Animal.prototype)
+  animal.name = name
+  animal.energy = energy
+
+  return animal
+}
+
+// new - when you invoke a function using new - those two lines (create and return)
+// are done for you implicitly - the object created is called this
+
+// using new - this is what happens under the hood
+
+function Animal(name, energy) {
+  // const this = Object. create(Animal.prototype)
+  this.name = name
+  this.energy = energy
+
+  // return this
+}
+
+const leo = new Animal('Leo', 7)
+const snoop = new Animal('Snoop', 10)
+
+// Now without comments - to show how it really works
+
+function Animal(name, energy) {
+  this.name = name
+  this.energy = energy
+}
+Animal.prototype.eat = function (amount){
+  console.log(`${this.name} is eating.`)
+  this.energy += amount
+}
+
+Animal.prototype.sleep = function (length) {
+  console.log(`${this.name} is sleeping.`)
+  this.energy += length
+
+Animal.prototype.play = function (length) {
+  console.log(`${this.name} is playing.`)
+  this.energy -= length
+}
+
+const leo = new Animal('Leo', 7)
+const snoop = new Animal('Snoop', 10)
+
+// this object is created for us - because we called the constructor function with 'new'
+// keyword. // If you leave off new when you invoke the function, the 'this'
+// object never gets created - nor does it get implicitly returned
+
+// THE NAME FOR THIS PATTERN IS 'PSEUDOCLASSICAL INSTANTIATION'
+
+// Guess what - JS does contain classes - they were added to the language in 2015
+
+class Animal {
+  constructor(name, energy){
+    this.name = name
+    this.energy = energy
+  }
+  eat(amount){
+    console.log(`${this.name} is eating.`)
+    this.energy += amount
+  }
+
+  sleep(length) {
+    console.log(`${this.name} is sleeping.`)
+    this.energy += length
+
+  play(length) {
+    console.log(`${this.name} is playing.`)
+    this.energy -= length
+  }
+}
+
+const leo = new Animal('Leo', 7)
+const snoop = new Animal('Snoop', 10)
+
+// this is a lot cleaner as far as implementations go - but cool to know
+// you can create classes as plain old JS - the new class way is just
+// syntatical sugar over the exiting way we have called the pseudoclassical pattern
+// to understand the convenience syntax of ES6 classes - its good to know this pattern.
+
+// Ensuring that new is always called on an object on isntantation
+function Animal(name, energy){
+  if (this instanceof Animal === false){
+    return new Animal(name,energy)
+  }
+  this.name = energy
+  this.energy = energy
+}
