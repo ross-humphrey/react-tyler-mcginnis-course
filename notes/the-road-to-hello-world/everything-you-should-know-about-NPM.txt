@@ -1,0 +1,29 @@
+NPM
+For profit venture backed org-
+> Registry for accessing packaging
+> CLI for uploading packages
+
+Modules - some code that is grouped together - usually by file
+One more more modules that are program agnostic - create a packages
+
+To check install
+node -v
+npm -v
+
+Init a new package with NPM
+npm init
+
+Install using
+npm install react
+
+Use ^ to use the latest version of a major release as a dependency
+i.e
+
+"dependencies": {
+  ...
+  "prop-types": "^15.7.2"
+  ..
+}
+Would take every major version 15.x.x 
+
+  "~15.7.2" this would include both major and minor versions
