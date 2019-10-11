@@ -1,0 +1,49 @@
+Webpack - Into Notes
+
+Why does webpack exist?
+> Module bundler
+> Creates depedency graph
+> Puts them all together into one or more bundles
+
+Intelligently creates a bundle:
+> Means you dont need to worry about script order
+
+Webpack can make transformations on your bundle too
+
+Popular:
+JS -> Babel use babel loader
+
+Commands run:
+npm init
+npm install webpack webpack-cli --save-dev
+npm install svg-inline-loader --save-dev
+npm install css-loader --save-dev
+npm install style-loader --save-dev
+npm install babel-loader --save-dev
+npm install html-webpack-plugin --save-dev
+npm install webpack-dev-server --save-dev
+
+
+1. webpack grabs the entry point
+2. examines all import and require - creating dependency graph
+3. webpack starts creating a bundle, whenever it comes across a path
+we have a loader for, transforms code according to that loader and
+adds to bundle
+4. takes final bundle and outputs to file specified.
+
+Plugins:
+After the bundle has been created - you can execute tasks
+
+HTMLWebpackPlugin
+> Generates an index.html page puts it in our /dist folder with <script> tags
+that references the new bundle
+
+Environment Plugin
+> Webpack provides environment plugin (no need to download - and removes dev stuff like warnings)
+
+
+npm run build // runs build for production
+npm run start // developmenet build and run on Local
+
+webpack DevServer is a dev server for webpack
+dosnt generate /dist stores file in cache, live reload
