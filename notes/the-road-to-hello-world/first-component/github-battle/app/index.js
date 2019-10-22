@@ -1,6 +1,7 @@
 import React from 'react' // Building UI (no matter what env it is in)
 import ReactDOM from 'react-dom' // Rendering react to the DOM
 import './index.css' // All styles in index.css to be active in component
+import Popular from './components/Popular'
 
 // Components
 // State
@@ -15,7 +16,9 @@ class App extends React.Component {
     render(){
       // description to describe what UI looks like
       return (
-        <div>Hello Ross</div>
+        <div className='container'>
+          <Popular />
+        </div>
       )
     }
 }
