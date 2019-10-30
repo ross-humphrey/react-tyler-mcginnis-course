@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "build": "^0.1.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
