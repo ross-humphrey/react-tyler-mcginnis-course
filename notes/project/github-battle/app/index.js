@@ -2,6 +2,7 @@ import React from 'react' // Building UI (no matter what env it is in)
 import ReactDOM from 'react-dom' // Rendering react to the DOM
 import './index.css' // All styles in index.css to be active in component
 import Popular from './components/Popular'
+import Battle from './components/Battle'
 
 // Components
 // State
@@ -17,7 +18,7 @@ class App extends React.Component {
       // description to describe what UI looks like
       return (
         <div className='container'>
-          <Popular />
+          <Battle />
         </div>
       )
     }
