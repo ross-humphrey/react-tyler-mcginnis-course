@@ -228,3 +228,9 @@ li {
 .btn-space {
   margin: 40px auto;
 }
+
+.error {
+  color: #ff1616;
+  font-size: 20px;
+  margin: 50px 0;
+}
