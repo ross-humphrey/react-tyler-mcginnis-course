@@ -127,7 +127,21 @@ function addFive (x, addReference) { // Function parsed as a parameter
   return addReference(x, 5) // invoke the function parsed in
 }
 
-addFive(10, add) //15
+// we could add a bunch of methods here like 'addTen', 'addTwenty' etc
+// which whilst correct isn't exactly concise, instead we can create 'makeAdder' function
+function makeAdder(x, addReference) {
+  return function (y) {
+    return addReference(x, y)
+  }
+}
+
+const addFive = makeAdder(5, add)
+const addTen = makeAdder(10, add)
+const addTwenty = makeAdder(20, add)
+
+addFive(10) //15
+addTen(10)
+addTwenty(20)
 
 /**
   When pass in a function as an argument - the function is called a 'callback' and
