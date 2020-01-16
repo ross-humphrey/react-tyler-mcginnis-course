@@ -127,21 +127,7 @@ function addFive (x, addReference) { // Function parsed as a parameter
   return addReference(x, 5) // invoke the function parsed in
 }
 
-// we could add a bunch of methods here like 'addTen', 'addTwenty' etc
-// which whilst correct isn't exactly concise, instead we can create 'makeAdder' function
-function makeAdder(x, addReference) {
-  return function (y) {
-    return addReference(x, y)
-  }
-}
-
-const addFive = makeAdder(5, add)
-const addTen = makeAdder(10, add)
-const addTwenty = makeAdder(20, add)
-
-addFive(10) //15
-addTen(10)
-addTwenty(20)
+addFive(10, add) //15
 
 /**
   When pass in a function as an argument - the function is called a 'callback' and
@@ -158,3 +144,73 @@ function higherOrderFunction (x, callback){
 }
 
 higherOrderFunction(10, add)
+
+// The pattern is all over JS
+
+/**
+  Higher Order Components are:
+
+  > A component
+  > Takes in a component as an arg
+  > Returns a new component
+  > Component it returns can render the original component parsed in
+**/
+
+function higherOrderComponent (Component) {
+  return class extends React.Component {
+    render() {
+      return <Component />
+    }
+  }
+}
+
+// Of the Chart functions above we can now build a higher order component.
+
+// Invoke the function as so
+const InfoWithHover = withHover(Info)
+const TrendChartWithHover = withHover(TrendChart)
+const DailyChartWithHover = withHover(DailyChart)
+
+function Info ({ hovering, height }) {
+  return (
+    <>
+      {hovering === true
+        ? <Tooltip id={this.props.id} />
+        : null}
+      <svg
+        className="Icon-svg Icon--hoverable-svg"
+        height={height}
+        viewBox="0 0 16 16" width="16">
+          <path d="M9 8a1 1 0 0 0-1-1H5.5a1 1 0 1 0 0 2H7v4a1 1 0 0 0 2 0zM4 0h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4zm4 5.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+      </svg>
+    </>
+  )
+}
+
+function withHover(Component) {
+  return class WithHover extends React.Component {
+    constructor(super){
+      super(props)
+
+      this.state = {
+        hovering: false
+      }
+
+      this.mouseOver = this.mouseOver.bind(this)
+      this.mouseOut = this.mouseOut.bind(this)
+    }
+    mouseOver(){
+      this.setState({hovering: true})
+    }
+    mouseOut(){
+      this.setState({hovering: false})
+    }
+    render(){
+      return (
+        <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+          <Component hovering={this.state.hovering}
+        </div>
+      );
+    }
+  }
+}
