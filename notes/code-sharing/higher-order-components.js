@@ -207,7 +207,8 @@ function withHover(Component, propName = 'hovering') { // By allowing invoker to
     }
     render(){
       const props = {
-        [propName]: this.state.hovering
+        [propName]: this.state.hovering,
+        ...this.props,
       }
       return (
         <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
